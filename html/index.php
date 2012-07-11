@@ -1,10 +1,13 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<HEAD>
+<head>
 <meta charset="utf-8" />
-<TITLE>Test</TITLE>
-</HEAD>
+<title>Test</title>
+</head>
 
 <?php echo "test"; ?>
 
+</html>
