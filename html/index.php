@@ -1,15 +1,11 @@
-<?php session_start(); ?>
+<?php
+// Organized the same as Peter Myer Nore did in section
 
-<!DOCTYPE html>
-<html lang="en">
+define('PROJECT0', '/home/jharvard/vhosts/project0/');
+define('M', PROJECT0 . 'html/model/');
+define('V', PROJECT0 . 'html/view/');
+define('C', PROJECT0 . 'html/controller/');
 
-<head>
-    <meta charset="utf-8" />
-    <title>Test</title>
-</head>
-
-<body>
-    <?php echo "test 2"; ?>
-</body>
-
-</html>
+// start controller
+require(C . "controller.php");
+?>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<pizzas>
+		<item>
+			<name>Tomato &amp; Cheese</name>
+			<price>
+				<small>5.50</small>
+				<large>9.75</large>
+			</price>
+		</item>
+		<item>
+			<name>Onions</name>
+			<price>
+				<small>6.85</small>
+				<large>10.85</large>
+			</price>
+		</item>
+		<item>
+			<name>Peppers</name>
+			<price>
+				<small>6.85</small>
+				<large>10.85</large>
+			</price>
+		</item>
+	</pizzas>
+	<specialty_pizzas>
+		<item>
+			<name>Three Aces Special</name>
+			<price>
+				<small>9.80</small>
+				<large>15.80</large>
+			</price>
+		</item>
+		<item>
+			<name>Mediterranean</name>
+			<description>Sliced Tomatoes, Olives, Spinach, Fresh Garlic, Mozzarella &amp; Feta Cheese</description>
+			<price>
+				<small>9.80</small>
+				<large>15.80</large>
+			</price>
+		</item>
+		<item>
+			<name>Vegetarian</name>
+			<description>Sliced Tomatoes, Onion, Peppers, Mushrooms, Broccoli, Mozzarella</description>
+			<price>
+				<small>9.80</small>
+				<large>15.80</large>
+			</price>
+		</item>
+			<item>
+			<name>Meat Lovers</name>
+			<description>Pepperoni, Hamburg, Sausage &amp; Bacon</description>
+			<price>
+				<small>9.80</small>
+				<large>15.80</large>
+			</price>
+		</item>
+		<item>
+			<name>Bbq Grilled Chicken</name>
+			<description>Choice Of Vegetables</description>
+			<price>
+				<small>9.80</small>
+				<large>15.80</large>
+			</price>
+		</item>
+	</specialty_pizzas>
+	<specialty_dinners>
+		<item>
+			<name>Chicken Wing Dinner</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>
+		<item>
+			<name>Gyro Plate</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>
+		<item>
+			<name>Chicken Finger Plate</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>
+		<item>
+			<name>Chicken Kabob Plate</name>
+			<description>With rice, salad &amp; pita bread</description>
+			<price>
+				<regular>7.85</regular>
+			</price>
+		</item>
+	</specialty_dinners>
+</menu>
