@@ -4,10 +4,12 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8" />
-<title>Test</title>
+    <meta charset="utf-8" />
+    <title>Test</title>
 </head>
 
-<?php echo "test"; ?>
+<body>
+    <?php echo "test"; ?>
+</body>
 
 </html>
