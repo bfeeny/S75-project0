@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php echo "test"; ?>
+    <?php echo "test 2"; ?>
 </body>
 
 </html>
