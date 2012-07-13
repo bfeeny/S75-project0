@@ -6,14 +6,22 @@ include(V . "view.php");
 
 // Figure out where what part of the menu we should be displaying
 // based on Peter Myer Nore's section notes 
-$category_to_display = 
-(isset($_GET['category_number'])) 
-? (int)$_GET['category_number'] 
-: 0;
+$categoryToDisplay = 
+(isset($_GET['categoryNumber'])) 
+? (int)$_GET['categoryNumber'] 
+: 1;
     
 echo "<br />";
-echo $menu->getName() . '<br />';
-echo maxCategoryIndex() . '<br />';
+
+if($categoryToDisplay > 0) {
+	echo 'Previous Category:' . getCategoryPrevious($categoryToDisplay) . '<br />';
+}
+
+echo 'Current Category:' . getCategoryCurrent($categoryToDisplay) . '<br />';
+
+if($categoryToDisplay < maxCategoryIndex()) {
+	echo 'Next Category:' . getCategoryNext($categoryToDisplay) . '<br />';
+}
 
 
 

@@ -12,8 +12,31 @@ $categoryArray = generateCategoryIndexes();
 
 // Current number of categories so we know when we are at the end of the menu
 function maxCategoryIndex( $params = '' ) {
-	global $menu; 
-	return $menu->count();
+	global $categoryArray; 
+	return count($categoryArray)-1;
+}
+
+// Find previous category in the menu
+function getCategoryPrevious( $query) {
+	global $categoryArray;
+	return $categoryArray[$query-1];
+}
+
+// Find current category in the menu
+function getCategoryCurrent( $query) {
+	global $categoryArray;
+	return $categoryArray[$query];
+}
+
+// Find the next category in the menu
+function getCategoryNext( $query) {
+	global $categoryArray;
+	return $categoryArray[$query+1];
+}
+
+// Calculate the number of size options for an item
+function getNumberSizes( $query) {
+	
 }
 
 // Ability to give each category/section of the menu an index to make coding of navigation easier
