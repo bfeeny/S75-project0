@@ -20,18 +20,18 @@ function maxCategoryIndex( $params = '' ) {
 // Determine what part of the menu we should be displaying
 function getCategoryToDisplay ( $params = '') {
 		$categoryToDisplay = ( isset($_GET['categoryNumber']) && 
-					           (int) $_GET['categoryNumber'] < maxCategoryIndex() && (int) $_GET['categoryNumber'] >= 0 ) 
+					           (int) $_GET['categoryNumber'] <= maxCategoryIndex() && (int) $_GET['categoryNumber'] >= 0 ) 
 					         ? (int) $_GET['categoryNumber'] 
 					         : 0;
 		return $categoryToDisplay;
 }
 
-// Find the categoryIndex and categoryName we are looking for
+// Find the categoryId and categoryName we are looking for
 function getCategory( $query) {
 	global $categoryArray;
-	$previousCategoryId = $categoryArray[$query];
-	$previousCategoryName = ucwords(str_replace("_", " ", $previousCategoryId));
-	return array($previousCategoryId, $previousCategoryName);
+	$CategoryId = $categoryArray[$query];
+	$CategoryName = ucwords(str_replace("_", " ", $CategoryId));
+	return array($CategoryId, $CategoryName);
 }
 
 // Calculate the number of size options for an item

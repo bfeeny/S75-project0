@@ -7,6 +7,18 @@ include(M . "model.php");
 // based on Peter Myer Nore's section notes 
 $categoryToDisplay = getCategoryToDisplay();
 
+// Prepare the current and if applicable previous and next navigation elements
+list($currentCategoryId, $currentCategoryName) = getCategory($categoryToDisplay);
+
+if($categoryToDisplay > 1) {
+	list($previousCategoryId, $previousCategoryName) = getCategory($categoryToDisplay - 1);
+}
+
+if($categoryToDisplay < maxCategoryIndex()) {
+	list($nextCategoryId, $nextCategoryName) = getCategory($categoryToDisplay+1);
+}
+
+
 // render view
 include(V . "view.php");
 
