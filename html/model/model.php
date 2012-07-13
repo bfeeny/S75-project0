@@ -8,6 +8,7 @@ if (file_exists(PROJECT0 . 'xml/menu.xml')) {
     exit('Failed to open menu.xml.');
 }
 
+// Create an array of categories
 $categoryArray = generateCategoryIndexes();
 
 // Current number of categories so we know when we are at the end of the menu
@@ -16,22 +17,21 @@ function maxCategoryIndex( $params = '' ) {
 	return count($categoryArray)-1;
 }
 
-// Find previous category in the menu
-function getCategoryPrevious( $query) {
-	global $categoryArray;
-	return $categoryArray[$query-1];
+// Determine what part of the menu we should be displaying
+function getCategoryToDisplay ( $params = '') {
+		$categoryToDisplay = ( isset($_GET['categoryNumber']) && 
+					           (int) $_GET['categoryNumber'] < maxCategoryIndex() && (int) $_GET['categoryNumber'] >= 0 ) 
+					         ? (int) $_GET['categoryNumber'] 
+					         : 0;
+		return $categoryToDisplay;
 }
 
-// Find current category in the menu
-function getCategoryCurrent( $query) {
+// Find the categoryIndex and categoryName we are looking for
+function getCategory( $query) {
 	global $categoryArray;
-	return $categoryArray[$query];
-}
-
-// Find the next category in the menu
-function getCategoryNext( $query) {
-	global $categoryArray;
-	return $categoryArray[$query+1];
+	$previousCategoryId = $categoryArray[$query];
+	$previousCategoryName = ucwords(str_replace("_", " ", $previousCategoryId));
+	return array($previousCategoryId, $previousCategoryName);
 }
 
 // Calculate the number of size options for an item
@@ -43,6 +43,7 @@ function getNumberSizes( $query) {
 function generateCategoryIndexes( $params = '' ) {
 	global $menu; 
 	$categoryArray = array();
+	array_push($categoryArray,'menu');
     foreach($menu->children() as $category) {   
     	array_push($categoryArray,$category->getName());
 	}   

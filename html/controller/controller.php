@@ -1,29 +1,14 @@
 <?php
-    
-// setup similar to Peter's section notes
+
+// Prepare data and make functions available
 include(M . "model.php");
-include(V . "view.php");
 
 // Figure out where what part of the menu we should be displaying
 // based on Peter Myer Nore's section notes 
-$categoryToDisplay = 
-(isset($_GET['categoryNumber'])) 
-? (int)$_GET['categoryNumber'] 
-: 1;
-    
-echo "<br />";
+$categoryToDisplay = getCategoryToDisplay();
 
-if($categoryToDisplay > 0) {
-	echo 'Previous Category:' . getCategoryPrevious($categoryToDisplay) . '<br />';
-}
-
-echo 'Current Category:' . getCategoryCurrent($categoryToDisplay) . '<br />';
-
-if($categoryToDisplay < maxCategoryIndex()) {
-	echo 'Next Category:' . getCategoryNext($categoryToDisplay) . '<br />';
-}
-
-
+// render view
+include(V . "view.php");
 
 // foreach ($menu->children() as $category) {
 //     echo $category->getName() . '<br />';
@@ -56,9 +41,9 @@ if($categoryToDisplay < maxCategoryIndex()) {
 //     }
 // 
 // }
-  	echo '<pre>';
-  	print_r($menu);
-  	echo '</pre>';
+//  	echo '<pre>';
+//  	print_r($menu);
+//  	echo '</pre>';
   	
 //  	$current = 'pizzas';
 
@@ -66,7 +51,3 @@ if($categoryToDisplay < maxCategoryIndex()) {
 //  		echo $item->name . '    ' . $item->price->count() . '     ' . count($item->price->children()) . '<br />';
  // 	}
 ?>
-
-</body>
-
-</html>
