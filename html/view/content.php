@@ -1,9 +1,13 @@
-       <div class='container'>
-        <?php
-     //     foreach( $data['query'] as $post ) {
-            // data will be available in $post var
-            include( 'post.php' );
-      //    }
-        ?>
+		<div class='container'>
+       		<div class="page-header">
+	       		<?php echo "<h1>$currentCategoryName</h1>"; ?>
+	       	</div><!--page-header-->
+	       	
+	       	<ul class="pager">
+	       		<?php echo $renderNav; ?> 
+	       	</ul>				
 
-        </div><!--container-->
+			<div class='well'>
+				<?php echo $renderMenu; ?>
+			</div><!--well-->
+       	</div><!--container-->

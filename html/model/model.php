@@ -50,5 +50,15 @@ function generateCategoryIndexes( $params = '' ) {
 	return $categoryArray;     
 }
 
+function renderCart( $params = '') {	
+      $renderCart = 
+      "<div class=\"row show-grid\">
+	      	<div class=\"span2 offset10\">
+	      		<a class=\"btn btn-primary\" href=\"#\"><i class=\"icon-shopping-cart icon-white\"></i> View Cart</a>
+	      	</div>
+	   </div>";
+	      			 
+	 return $renderCart;
+}
 
 ?>

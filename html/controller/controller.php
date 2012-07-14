@@ -30,6 +30,22 @@ if($categoryToDisplay == 0) {
     	ucwords(str_replace("_", " ", $categoryArray[$i]))  . '</h3></a></ul>';	
 	}
 } else {
+	$result = $menu->xpath("/menu/$currentCategoryId/*");
+
+	while(list( , $node) = each($result)) {
+    	$renderMenu .= "<span style=\"color: #FF0000\";><strong>" . $node->name . "</span></strong>";
+    	$renderMenu .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>" . $node->description . "</em>";
+    	$renderMenu .= "<span class=\"pull-right\";>
+    					<a class=\"btn btn-mini\" href=\"\"><i class=\"icon-plus\"></i> <strong>Add</strong></a>
+    					small&nbsp;&nbsp;" . $node->price->small . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    	$renderMenu .= "<a class=\"btn btn-mini\" href=\"\"><i class=\"icon-plus\"></i> <strong>Add</strong></a>
+    					large&nbsp;&nbsp;" . $node->price->large . "</span><br />";
+    	$renderMenu .= "<br />";
+    }
+    
+    $renderMenu .= renderCart();
+
+
 	// Show a previous button if we are not on the first page of the menu
 	if($categoryToDisplay > 1) {
 		$renderNav = "<li class=\"previous\"><a href=\"index.php?categoryNumber=" . 

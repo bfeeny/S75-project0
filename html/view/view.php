@@ -7,13 +7,9 @@
 
 <body>
 <?php include('top-bar.php');
-      include('content.php'); ?>
+      include('content.php');
+      include('bottom-bar.php'); ?>
 
-    <?php
-    
-
-
-?>
-	</body>
+</body>
 </html>
 

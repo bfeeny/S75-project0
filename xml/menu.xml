@@ -91,4 +91,202 @@
 			</price>
 		</item>
 	</specialty_dinners>
+	<side_orders>
+		<item>
+			<name>Onion Rings</name>
+			<price>
+				<small>2.60</small>
+				<large>2.95</large>
+			</price>
+		</item>
+		<item>
+			<name>French Fries</name>
+			<price>
+				<small>2.25</small>
+				<large>2.65</large>
+			</price>
+		</item>
+		<item>
+			<name>Spicy Fries</name>
+			<price>
+				<small>2.60</small>
+				<large>2.95</large>
+			</price>
+		</item>
+		<item>
+			<name>Chicken Wings</name>
+			<price>
+				<regular>2.60</regular>
+			</price>
+		</item>
+	</side_orders>
+	<salads>
+		<item>
+			<name>Garden</name>
+			<price>
+				<small>3.50</small>
+				<large>4.50</large>
+			</price>
+		</item>
+		<item>
+			<name>Greek</name>
+			<price>
+				<small>4.50</small>
+				<large>5.50</large>
+			</price>
+		</item>
+		<item>
+			<name>Antipasto</name>
+			<price>
+				<small>4.50</small>
+				<large>5.50</large>
+			</price>
+		</item>
+		<item>
+			<name>Chef</name>
+			<price>
+				<small>4.50</small>
+				<large>5.50</large>
+			</price>
+		</item>
+	</salads>
+	<spaghetti_or_ziti>
+		<item>
+			<name>With Sauce</name>
+			<price>
+				<regular>5.40</regular>
+			</price>
+		</item>
+		<item>
+			<name>With Sausage</name>
+			<price>
+				<regular>6.45</regular>
+			</price>
+		</item>
+		<item>
+			<name>With Meat Ball</name>
+			<price>
+				<regular>6.45</regular>
+			</price>
+		</item>
+		<item>
+			<name>A La Three Aces</name>
+			<description>Sausage, Mushrooms, Bacon &amp; Ham, Topped with Sauce &amp; Mozzarella Cheese</description>
+			<price>
+				<regular>5.40</regular>
+			</price>
+		</item>
+	</spaghetti_or_ziti>
+	<homemade_lasagna_ravioli_or_manicotti>
+		<item>
+			<name>With Sauce</name>
+			<price>
+				<regular>6.25</regular>
+			</price>
+		</item>
+		<item>
+			<name>With Sausage</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>
+		<item>
+			<name>With Meatball</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>	
+		<item>
+			<name>Veggie Lasagna</name>
+			<price>
+				<regular>7.25</regular>
+			</price>
+		</item>			
+	</homemade_lasagna_ravioli_or_manicotti>
+	<homemade_calzones>
+		<item>
+			<name>Vegetarian</name>
+			<price>
+				<large>7.35</large>
+			</price>
+		</item>
+		<item>
+			<name>Sausage</name>
+			<price>
+				<large>7.35</large>
+			</price>
+		</item>
+		<item>
+			<name>Ham &amp; Cheese</name>
+			<price>
+				<large>7.35</large>
+			</price>
+		</item>
+		<item>
+			<name>Chicken Cutlet</name>
+			<price>
+				<large>7.35</large>
+			</price>
+		</item>
+	</homemade_calzones>	
+	<wraps>
+		<item>
+			<name>Turkey Club Wrap</name>
+			<description>Turkey, Cheese, Lettuce, Tomato, Onion, Mayo</description>
+			<price>
+				<regular>4.95</regular>
+			</price>
+		</item>
+		<item>
+			<name>Chicken Cobb</name>
+			<description>Grilled Chicken, Bacon, Cheese, Lettuce, Tomato, Onion, Mayo</description>
+			<price>
+				<regular>4.95</regular>
+			</price>
+		</item>
+		<item>
+			<name>Greek Supreme</name>
+			<description>Feta Cheese, Black Olives, Lettuce, Tomato, Onion, Greek Dressing</description>
+			<price>
+				<regular>4.95</regular>
+			</price>
+		</item>
+		<item>
+			<name>Crispy Chicken</name>
+			<description>Chicken Finger, Lettuce, Tomato, Onion, Honey Mustard</description>
+			<price>
+				<regular>4.95</regular>
+			</price>
+		</item>
+	</wraps>	
+	<grinders>
+		<item>
+			<name>Meatless</name>
+			<price>
+				<small>4.50</small>
+				<large>4.95</large>
+			</price>
+		</item>
+		<item>
+			<name>Hamburger</name>
+			<price>
+				<small>4.50</small>
+				<large>4.95</large>
+			</price>
+		</item>
+		<item>
+			<name>Cheeseburger</name>
+			<price>
+				<small>4.75</small>
+				<large>5.75</large>
+			</price>
+		</item>
+		<item>
+			<name>Meatball</name>
+			<price>
+				<small>4.75</small>
+				<large>5.75</large>
+			</price>
+		</item>
+	</grinders>
 </menu>

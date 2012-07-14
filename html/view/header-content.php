@@ -9,4 +9,5 @@
     }
 </style>
 <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap-responsive.css'/>
+<!-- Include a style sheet to override bootstrap CSS when necessary -->
 <link rel='stylesheet' type='text/css' href='../view/styles.css'/>

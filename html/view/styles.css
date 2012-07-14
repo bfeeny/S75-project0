@@ -1,13 +1,16 @@
-/*
-body { background-color:#ff0000;
-	 }
-	 
-.navbar navbar-fixed-top { background-color:#ff0000; }
-.navbar { background-color:#ff0000; }
-.navbar-fixed-top { background-color:#ff0000; }
-.navbar-inner { background-color:#ff0000; }
-.container { background-color:#ff0000; }
-.brand { background-color:#ff0000; }
-.pull-right { background-color:#ff0000; }
 
-*/
+/* background is green */
+body {  background-color:#097d20; }
+	 
+/* category text is yellow */
+h1 { color:#ffff00; }
+
+/* navigation button text is red */
+a { color:#ff0000; }
+
+/* navbar backgrounds are red */
+.navbar-inner { color:#ffff00; background-color:#d51313; background-image: none}
+
+/* avbar text yellow */
+.navbar .brand { color:#ffff00; }
+
