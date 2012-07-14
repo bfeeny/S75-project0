@@ -18,13 +18,42 @@ if($categoryToDisplay < maxCategoryIndex()) {
 	list($nextCategoryId, $nextCategoryName) = getCategory($categoryToDisplay+1);
 }
 
+// renderNav variable which will hold the HTML to be used for the navigation pane
+$renderNav='';
+// renderMenu variable which will hold the HTML to be used for the menu page
+$renderMenu = '';
+
+// If we are on the Main page nav controls are not present
+if($categoryToDisplay == 0) {
+	for ($i = 1; $i <= maxCategoryIndex(); $i++) {
+    	$renderMenu .= "<ul class=\"unstyled\"><a href=\"index.php?categoryNumber=$i\"><h3>" . 
+    	ucwords(str_replace("_", " ", $categoryArray[$i]))  . '</h3></a></ul>';	
+	}
+} else {
+	// Show a previous button if we are not on the first page of the menu
+	if($categoryToDisplay > 1) {
+		$renderNav = "<li class=\"previous\"><a href=\"index.php?categoryNumber=" . 
+		($categoryToDisplay - 1) . "\">&larr; $previousCategoryName</a></li>";
+	}
+	
+	// Always show a nav button to access the Main Menu, unless we are on the Main Menu already
+	if($categoryToDisplay != 0) {
+		$renderNav .= "<li><a href=\"index.php\">Main Menu</a></li>";
+	
+	}
+	
+	// Show a next button if we are not on the last page of the menu
+	if($categoryToDisplay < maxCategoryIndex() &&
+		$categoryToDisplay > 0) {
+		$renderNav .= "<li class=\"next\"><a href=\"index.php?categoryNumber=" . 
+		($categoryToDisplay + 1) . "\">$nextCategoryName &rarr;</a></li>";
+	}
+}
+
 
 // render view
 include(V . "view.php");
 
-// foreach ($menu->children() as $category) {
-//     echo $category->getName() . '<br />';
-//     }
 
 // foreach ($menu as $category) {
 //     printf("%s has got %d children.<br />", $category->getName(), $category->count());
