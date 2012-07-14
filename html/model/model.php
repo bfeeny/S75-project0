@@ -17,7 +17,7 @@ function maxCategoryIndex( $params = '' ) {
 	return count($categoryArray)-1;
 }
 
-// Determine what part of the menu we should be displaying
+// Determine what part of the menu we should be displaying, input check request
 function getCategoryToDisplay ( $params = '') {
 		$categoryToDisplay = ( isset($_GET['categoryNumber']) && 
 					           (int) $_GET['categoryNumber'] <= maxCategoryIndex() && (int) $_GET['categoryNumber'] >= 0 ) 
@@ -50,15 +50,47 @@ function generateCategoryIndexes( $params = '' ) {
 	return $categoryArray;     
 }
 
-function renderCart( $params = '') {	
+function renderCart( $params = '') {
+		if(isset($_SESSION['cart'])) {
+			$cartCount = 1;
+		} else {
+			$cartCount = 0;
+		}
       $renderCart = 
-      "<div class=\"row show-grid\">
+      "<div class=\"row\">
 	      	<div class=\"span2 offset10\">
-	      		<a class=\"btn btn-primary\" href=\"#\"><i class=\"icon-shopping-cart icon-white\"></i> View Cart</a>
+	      		<a class=\"btn btn-primary\" href=\"#\"><i class=\"icon-shopping-cart icon-white\"></i> View Cart</a><br />"
+	      		. $cartCount . " Items in Cart
 	      	</div>
 	   </div>";
 	      			 
 	 return $renderCart;
 }
+
+function setNavigation( $categoryToDisplay ) {
+
+	// Prepare the current and if applicable previous and next navigation elements
+  	global $navigation;
+  	  	
+	$navigation = array( 
+        'currentCategoryId'  => '' , 'currentCategoryName' => ''
+      , 'previousCategoryId' => '' , 'previousCategoryName' => ''   
+      , 'nextCategoryId' 	 => '' , 'nextCategoryName' => ''
+      );
+  
+	// Prepare the current and if applicable previous and next navigation elements
+    list($navigation['currentCategoryId'], $navigation['currentCategoryName']) = getCategory($categoryToDisplay);
+
+    if($categoryToDisplay > 1) {
+    	list($navigation['previousCategoryId'], $navigation['previousCategoryName']) = getCategory($categoryToDisplay- 1);
+    }
+    
+    if($categoryToDisplay < maxCategoryIndex()) {
+    	list($navigation['nextCategoryId'], $navigation['nextCategoryName']) = getCategory($categoryToDisplay + 1);
+
+    }
+	
+}
+
 
 ?>
