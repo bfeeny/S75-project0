@@ -86,7 +86,7 @@ function displayItemsInCart() {
 	 	foreach($_SESSION['cart'] as $itemId => $quantity) { 
 			$renderCart .= "<span style=\"color: #FF0000\";><strong>Product: $itemId</strong></span>";
 			$renderCart .= "<span class=\"pull-right\";>Quantity&nbsp;&nbsp;";
-			$renderCart .= "<input type=\"text\" name=$itemId size=\"2\" maxlength=\"2\" value=\"$quantity\" />";
+			$renderCart .= "<input type=\"text\" name=$itemId size=\"3\" maxlength=\"3\" value=\"$quantity\" />";
 			$renderCart .= "&nbsp;&nbsp;";
 			$renderCart .= "<a class=\"btn btn-mini btn-danger\" href=\"index.php?action=remove&itemId=$itemId\"><i class=\"icon-remove\"></i> 
     						Remove</a>";

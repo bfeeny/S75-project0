@@ -43,9 +43,10 @@ if(isset($_GET['action'])) {
         break;
        
        // check that all updates are valid itemId's, first they should already be set, second valid itemId's
+       // and last check the qty so that we can only enter positive values
         case "update":
             foreach ( $_GET as $itemId => $value ) {
-            	if(isset($_SESSION['cart'][$itemId])) {
+            	if(isset($_SESSION['cart'][$itemId]) && ($value >= 0)) {
             		if(checkItemId($itemId)) {
 	            		$_SESSION['cart'][$itemId]=$value;
 	            	} 
