@@ -4,22 +4,22 @@
 		<item>
 			<name>Tomato &amp; Cheese</name>
 			<price>
-				<small id="00001S">5.50</small>
-				<large id="00001L">9.75</large>
+				<small id="0001S">5.50</small>
+				<large id="0001L">9.75</large>
 			</price>
 		</item>
 		<item>
 			<name>Onions</name>
 			<price>
-				<small id="00002S">6.85</small>
-				<large id="00002L">10.85</large>
+				<small id="0002S">6.85</small>
+				<large id="0002L">10.85</large>
 			</price>
 		</item>
 		<item>
 			<name>Peppers</name>
 			<price>
-				<small id="00003S">6.85</small>
-				<large id="00003L">10.85</large>
+				<small id="0003S">6.85</small>
+				<large id="0003L">10.85</large>
 			</price>
 		</item>
 	</pizzas>

@@ -14,3 +14,6 @@ a { color:#ff0000; }
 /* avbar text yellow */
 .navbar .brand { color:#ffff00; }
 
+/* reduce size of input textbox to something smaller */
+input, textarea { width:20px; }
+
