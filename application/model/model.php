@@ -174,7 +174,7 @@ function displayThankYou()
 	
 	$renderMenu  = "Thank you for your order<br /><br />";
 	$renderMenu .= "You have been charged {$_SESSION['total']}<br /><br />";
-	$renderMenu .= "<a href=\"{$_SERVER['PHP_SELF']}\">Continue Shopping</a>";
+	$renderMenu .= "<a href=\"{$_SERVER['PHP_SELF']}\">Return to Three Aces</a>";
 }
 
 // Sets navigation array to be used in cycling through menu

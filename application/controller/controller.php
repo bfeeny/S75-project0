@@ -79,7 +79,13 @@ if (isset($_GET['action']))
         	if (count($_SESSION['cart']) == 0) 
         	{
         	    unset($_SESSION['cart']);
-        	    header( 'Location: ' . $_SERVER['PHP_SELF']);
+        	    
+        	    // redirect user to home page, using absolute path, per
+                // http://us2.php.net/manual/en/function.header.php
+                $host = $_SERVER["HTTP_HOST"];
+                $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
+                header("Location: http://$host$path/index.php");
+                exit;
         	}
         	$renderMenu = displayItemsInCart();
         break;
@@ -98,7 +104,12 @@ if (isset($_GET['action']))
         	}   
         	else 
         	{
-	        	header( 'Location: ' . $_SERVER['PHP_SELF']);
+	        	// redirect user to home page, using absolute path, per
+                // http://us2.php.net/manual/en/function.header.php
+                $host = $_SERVER["HTTP_HOST"];
+                $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
+                header("Location: http://$host$path/index.php");
+                exit;
         	}
 
         break;
@@ -106,7 +117,13 @@ if (isset($_GET['action']))
         // destroy session as shown in section, load up the main page when done
         case "logout":
    			session_destroy();
-   			header( 'Location: ' . $_SERVER['PHP_SELF']);
+   			
+   			// redirect user to home page, using absolute path, per
+            // http://us2.php.net/manual/en/function.header.php
+            $host = $_SERVER["HTTP_HOST"];
+            $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
+            header("Location: http://$host$path/index.php");
+            exit;
         break;    
     }
 } 

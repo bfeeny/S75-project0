@@ -1,0 +1,114 @@
+
+Model
+
+In the model I store all my functions.  I am not sure if this is totally appropriate but it felt like an organized way of doing things. Many of these are for manipulating data out of my XML database, or out of a simpleXMLObject which came out of the database to begin with.
+
+My data model I switched around a few times before settling on what I currently have which is this:
+
+<menu>
+              <specialty_pizzas>
+                <item>
+                        <name>Three Aces Special</name>
+                        <price>
+                                <small id="0101S">9.80</small>
+                                <large id="0101L">15.80</large>
+                        </price>
+                </item>
+                <item>
+                        <name>Mediterranean</name>
+                        <description>Sliced Tomatoes, Olives, Spinach, Fresh Garlic, Mozzarella &amp; Feta Cheese</description>
+                        <price>
+                                <small id="0102S">9.80</small>
+                                <large id="0102L">15.80</large>
+                        </price>
+                </item>
+         </specialty_pizzas>
+</menu>
+
+According to many sites, they encourage to avoid attributes, as working with them is apparently not as straight forward then just dealing with elements.  However, I wanted to make sure I used attributes where appropriate.  I wanted to give each item its own unique ID.  The thought is to be similar to a RDMS where each row has a unique key.  The "id" would be my key and would be on every item, assigned at the most specific level in my XML.  I made the id an attribute because according to XML for PHP developers (http://www.ibm.com/developerworks/xml/library/x-xmlphp1/) attributes should be used for metadata, data about the data.  The id is data about the data.  I am happy with the way this worked out, and it definitely forced me to learn more with xpath than I would have had to otherwise.
+
+I thought about making <category> an element, as in:
+
+<menu>
+	<category>
+		<name>pIzza</name>
+	</category
+</menu>
+
+or using an attribute as in:
+
+<menu>
+	<item category="pizza">Three Aces Special</item>
+</menu>
+
+Ultimately I decided on the schema I did.  To make the shopping cart part of it easier to design, I added unique keys.  I gave each category its own 2 digit address space for items, so it is laid out like so:
+
+pizzas			00xx
+specialty pizzas	01xx
+specialty dinners	02xx
+side orders		03xx
+etc
+
+So the system is non-arbitrary and easy to follow.  This allows for a maximum of 100 categories and 100 items per category before design changes need to take place.  I reuse the actual element name as the category name.  I feel this could be seen as good or bad.  I did have to stick to strict XML element naming rules, so this involved some more code on my end, having to string replace the "_" for " " and upper case the words.  This worked out well, and I understood that their may be some tradeoffs good and bad in doing it this way.
+
+The code that parses the XML, which is in model.php is entirely dynamic.  Someone could add new categories, new items, new price categories such as Extra Small, etc. and no changes would need to be made.  
+
+I used the basic "framework" presented in section for my project.  That is I have a index.php which is little more than some defines and a line that kicks off the controller.  The controller includes both the model.php and the view.php.
+
+I put time into thinking about input checking.  I tried to crash my own program and do strange things like inject negative quantities on update or add.
+
+I added navigation through the menu.  I could have just met the specification with a basic category list, but I liked the exercise of creating dynamic navigation.  In doing so, I found it easier to just dump part of the xml to an array and work with it that way.  If I had more time I could have thrown that part into purely xpath queries, but there really was no point.  Also, much of this project I learned as I was putting it all together.  Because of this, I got to a point where making large design changes were not feasible as we approached the project deadline.  For example, if I were to re-design the XML schema, I would likely add a category id.  This would be used strictly to clean up and simplify some of the page navigation that I did.  This would open up the possibility of using the category id and item id together as a product id of sorts, so that during checkout I can do some even easier lookups on what category the item was a part of.
+
+
+View
+
+I am using the bootcamp API from Twitter as demonstrated in many of the examples by Peter Nore. That has saved me much time which allowed me to focus more on the PHP/XML portions of the project rather than spending more time on making things look good.  
+
+This is organized like the examples in section.  I have a view.php which includes:
+
+	header-content.php		- contains all my headers in it, including the bootstrap CSS setup from Twitter.  I also added
+					  some CSS of my own to override some of the styles in the bootstrap CSS.
+
+	top-bar.php			- This is the code for the top strip of my page, with the title and a tagline on it
+
+	content.php			- This combines all the content in the page.  There is an optional navigation that may be displayed
+					  if the user is on one of the menu pages that needs it. And that navigation may be different for different
+					  pages.  Its stored in $renderNav and displayed by content.php.  The other content that may be shown
+					  is the menu itself or the shopping cart, both are stored in $renderMenu and displayed here.
+
+	bottom-bar.php			- contains the small strip at the bottom of all pages, this has Three Aces address and phone information.
+
+	view.php			- this is the actual template for a page.  It has the DOCTYPE defined, a section for headers which includes
+					  header-content.php and body that includes top-bar.php, content.php and bottom-bar.php.
+
+The actual content is constructed mostly by appending HTML to variables $renderNav and $renderMenu.  Then in the content.php I am simply displaying these variables.  I think with more time I could factor out more parts of the program into the MVC model, but I am mostly happy about how it turned out.
+
+Controller
+
+The controller is handling all of the logic of the program.    Some of the key things being done in the controller are:
+
+Session Initialization
+Checking for GET "actions"
+Making sure input checking gets done
+Redirecting the user
+
+The controller is basically orchestrating the entire session.  
+
+Some of the things I specifically check against:
+
+- check for valid itemId's when an action is called
+- check that quantities entered are positive
+- check to make sure if the final item is removed from cart, we destroy the $_SESSION['cart']
+- check that categories the user is trying to navigate to are valid
+
+Additional Info
+
+I did extensive reading while creating this project.  I had some PHP experience in the past, but it was around the PHP/FI->PHP3.0 days.  I found the resources given in class to be great, including IBM's resources on XML, StylusStudios xpath guide, Chrome Scraper, etc.  I checked all of my pages against the w3 validator at http://validator.w3.org/. My code was styled to meet specification at https://manual.cs50.net/Style_Guide.  I used the videos at https://manual.cs50.net/seminars, specifically "CSS for a Beautiful Website" (Charles Bandes) to gain a bit more knowledge on CSS and how I may want to use it in the project.  I had to do a few manipulations to the bootstrap CSS to get a "pizza" look to the site.  
+
+I do believe this site could be substantially improved.  I put a lot of time into the creation of the site and my focus was on meeting the objectives spelled out in the project0 requirements rather than introducing expanded functionality.  
+
+To develop the site I used Coda 2, an IDE for OSX.  This was my first time using this IDE, so that was a bit of a learning process as well.  However after watching Gabrielle Ehrlich '13's video VIM on the cs50 site, I am pretty psyched to try to use vim more, as I was really impressed with her brief video of what it could do.
+
+
+
+
